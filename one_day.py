@@ -20,4 +20,24 @@ with sync_playwright() as p:   # с функции sync_playwright() берем 
     print(page.title()) # выводим Титул со странички
     browser.close() # Закрываем браузер
 
+# Результат запуска: "Fast and reliable end-to-end testing for modern web apps | Playwright"
+# Код выполнен без ошибок.
+
+# Ассинхронный вариант
+
+import asyncio
+from playwright.async_api import async_playwright
+
+async def main():
+    async with async_playwright() as p:
+        browser = await p.chromium.launch()
+        page = await browser.new_page()
+        await page.goto("https://playwright.dev")
+        print(await page.title())
+        await browser.close()
+
+asyncio.run(main()) # завершает цикл событий
+
+
+
 
