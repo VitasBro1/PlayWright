@@ -42,13 +42,18 @@
 # Код выполнен без ошибок.
 
 # выполнение скриншота
-from playwright.sync_api import sync_playwright
+# from playwright.sync_api import sync_playwright
 
-with sync_playwright() as p:
-    browser = p.webkit.launch(headless=False, slow_mo=500) # запускает браузер firefox
-    page = browser.new_page()
-    page.goto("https://playwright.dev/")
-    page.screenshot(path="example.png", full_page=True)
-    browser.close()
+# with sync_playwright() as p:
+    # browser = p.webkit.launch(headless=False, slow_mo=500) # запускает браузер firefox
+    # page = browser.new_page()
+    # page.goto("https://playwright.dev/")
+    # page.screenshot(path="example.png", full_page=True)
+    # browser.close()
 
 # изменен код для того, чтобы увидеть пользовательский интерфейс
+
+
+
+# я поработал в интерактивном REPl Python
+# фотографии работы: rabota1.png and rabota2.png
