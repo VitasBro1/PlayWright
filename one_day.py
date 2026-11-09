@@ -45,8 +45,10 @@
 from playwright.sync_api import sync_playwright
 
 with sync_playwright() as p:
-    browser = p.webkit.launch()
+    browser = p.webkit.launch(headless=False, slow_mo=500) # запускает браузер firefox
     page = browser.new_page()
     page.goto("https://playwright.dev/")
-    page.screenshot(path="example.png") # сохранение скриншота
+    page.screenshot(path="example.png", full_page=True)
     browser.close()
+
+# изменен код для того, чтобы увидеть пользовательский интерфейс
