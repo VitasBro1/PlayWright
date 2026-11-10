@@ -65,11 +65,34 @@
 # ДЕНЬ 2
 
 # Использование Playwright c Pyinstaller для создания автономных исполняемых файлов
-from playwright.sync_api import sync_playwright
+# from playwright.sync_api import sync_playwright
 
-with sync_playwright() as p:
-    browser = p.chromium.launch()
-    page = browser.new_page()
-    page.goto("https://playwright.dev/")
-    page.screenshot(path="example2.png")
-    browser.close()
+# with sync_playwright() as p:
+    # browser = p.chromium.launch()
+    # page = browser.new_page()
+    # page.goto("https://playwright.dev/")
+    # page.screenshot(path="example2.png")
+    # browser.close()
+
+# Код выполнен. Скриншот был сделан.
+
+# Для того чтобы обьединить браузеры с исполняемыми файлами:
+
+# PLAYWRIGHT_BROWSERS_PATH=0 playwright install chromium
+# pyinstaller -F main.py
+
+""" Известные проблемы """
+
+# в Playwright есть автоматическое ожидание.
+# Вместо time.sleep(5) используйте page.wait_for_timeout(5000)
+# Иногда лучше использовать wait_for_timeout вместо модуля time. Ведь Асинхронные операции могут старым способом может обрабатываться некорректно
+
+# НЕСОВМЕСТИМОСТЬ SelectorEventLoop с asyncio.
+# selectorEventLoop не поддерживает асинхронные подпроцессы
+
+# Threading
+#    API Playwright не безопасный. При многопоточности надо создавать отдельный поток.
+
+# Отмена asyncio задач
+#    Если задача долго обрабатывается запустите в отдельной задаче и защитите с помощью asyncio.shield()
+
