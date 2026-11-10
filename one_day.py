@@ -57,3 +57,19 @@
 
 # я поработал в интерактивном REPl Python
 # фотографии работы: rabota1.png and rabota2.png
+
+
+# работа с PyInstaller
+
+# Дата 10.11.2026. Время: 13:25. ФИО: Кузьмин Виталий Иванович
+# ДЕНЬ 2
+
+# Использование Playwright c Pyinstaller для создания автономных исполняемых файлов
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+    browser = p.chromium.launch()
+    page = browser.new_page()
+    page.goto("https://playwright.dev/")
+    page.screenshot(path="example2.png")
+    browser.close()
