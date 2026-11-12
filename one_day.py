@@ -22,7 +22,7 @@
 # Результат запуска: "Fast and reliable end-to-end testing for modern web apps | Playwright"
 # Код выполнен без ошибок.
 
-""" Модифицированный код """
+""" Модифицированный код 
 from playwright.sync_api import sync_playwright  # импортируем sync_playwright
 
 with sync_playwright() as p:  # запускаем sync_playwright(), сохраняем в p
@@ -32,8 +32,8 @@ with sync_playwright() as p:  # запускаем sync_playwright(), сохра
     print("Title:", page.title())  # выводим заголовок страницы
     browser.close()  # закрываем браузер
 
-""" Время 23:50. ФИО: Кузьмин Виталий Иванович. Дата: 11.11.2026 """
-# Забыл указать дату и время
+Время 23:50. ФИО: Кузьмин Виталий Иванович. Дата: 11.11.2026 """
+
 
 
 # Ассинхронный вариант
@@ -56,6 +56,17 @@ with sync_playwright() as p:  # запускаем sync_playwright(), сохра
     # browser.close()
 
 # изменен код для того, чтобы увидеть пользовательский интерфейс
+
+""" Модифицированный код №2"""
+"""Время 14:41. Дата 12.11.2026. ФИО: Кузьмин Виталий Иванович"""
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+    browser = p.webkit.launch(headless=False, slow_mo=500)  # запускает браузер WebKit (Safari)
+    page = browser.new_page()
+    page.goto("https://github.com/VitasBro1", wait_until="networkidle") # ждет пока сайт перестанет что то грузить по сети и только потом идет дальше
+    page.screenshot(path="example.png", full_page=True)
+    browser.close()
 
 
 
